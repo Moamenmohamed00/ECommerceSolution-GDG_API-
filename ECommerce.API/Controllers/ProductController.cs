@@ -21,7 +21,7 @@ namespace ECommerce.API.Controllers
                 p.Id,
                 p.Name,
                 p.Description,
-                p.pictureurl,
+                p.PictureUrl,
                 p.Price,
                 BrandName = p.Brand != null ? p.Brand.Name : string.Empty,
                 TypeName = p.Type != null ? p.Type.Name : string.Empty
@@ -41,7 +41,7 @@ namespace ECommerce.API.Controllers
                 product.Id,
                 product.Name,
                 product.Description,
-                product.pictureurl,
+                product.PictureUrl,
                 product.Price,
                 BrandName = product.Brand != null ? product.Brand.Name : string.Empty,
                 TypeName = product.Type != null ? product.Type.Name : string.Empty

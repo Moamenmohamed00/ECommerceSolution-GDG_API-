@@ -5,6 +5,7 @@ using ECommerce.Persistence._Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using DotNetEnv;
+using ECommerce.Persistence.DatasSed;
 var builder = WebApplication.CreateBuilder(args);
 
 Env.Load();
@@ -19,6 +20,12 @@ Options.UseSqlServer(Environment.GetEnvironmentVariable("DB_CONNECTION")));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 // Configure the HTTP request pipeline.
 var app = builder.Build();
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<ECommerceDb>();
+    db.Database.Migrate(); 
+    ECommerceSeed.SeedAsync(db).Wait();
+}
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

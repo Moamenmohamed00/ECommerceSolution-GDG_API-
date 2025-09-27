@@ -10,8 +10,6 @@ namespace ECommerce.Domain.Entities
     public class Type:BaseEntity
     {
         public List<Product> Products { get; set; }
-        [ForeignKey("Product")]
-        public int ProductId { get; set; }
         public Type() 
         {
             Products = new List<Product>();

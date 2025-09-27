@@ -30,7 +30,7 @@ namespace ECommerce.API.Controllers
         [HttpGet("{id}/products")]
         public async Task<ActionResult<IEnumerable<Product>>> GetProductsByBrand(int id)
         {
-            var products = await _uow.Products.FindAsync(p => p.BrandId == id);
+            var products = await _uow.Products.FindAsync(p => p.ProductBrandId == id);
             return Ok(products);
         }
         [HttpPost]

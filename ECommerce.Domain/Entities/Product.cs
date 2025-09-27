@@ -13,13 +13,13 @@ namespace ECommerce.Domain.Entities
         public string? Description { get; set; }
         [Range(1,10000)]
         public decimal Price { get; set; }
-        public string pictureurl { get; set; }=null!;
+        public string PictureUrl { get; set; }=null!;
         public Brand Brand { get; set; }
         [ForeignKey("Brand")]
-        public int BrandId { get; set; }
+        public int ProductBrandId { get; set; }
         public Type Type { get; set; }
         [ForeignKey("Type")]
-        public int TypeId { get; set; }
+        public int ProductTypeId { get; set; }
 
     }
 
